@@ -1,8 +1,13 @@
 <?php
 if ($_GET && isset($_GET['password_length'])) {
-    $password_length = $_GET['password_length']
+    // recuper la password
+    $password_length = $_GET['password_length'];
 
+    // $cryptedPassword = genera una password nuova della stessa lunghezza
+    $cryptedPassword = createRandomPassword($password_length);
 
+    // stampa la nuova password
+    echo "Your new password is: " . $cryptedPassword;
 };
 
 
@@ -18,8 +23,7 @@ if ($_GET && isset($_GET['password_length'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -34,19 +38,23 @@ if ($_GET && isset($_GET['password_length'])) {
                 <h2 class="text-light fs-3 text-center mb-5">Generate a strong, secure, awesome, beautiful and clean
                     password.
                 </h2>
-                <form class="col-10 offset-1 bg-light p-3 rounded">
+                <form class="col-10 offset-1 bg-light p-3 rounded" method="GET" action="">
+                    <!-- lunghezza password -->
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password length</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
+                    <!-- inclusione lettere -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Letters</label>
                     </div>
+                    <!-- inclusione numeri -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Numbers</label>
                     </div>
+                    <!-- inclusione simboli -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Symbols</label>
@@ -61,8 +69,7 @@ if ($_GET && isset($_GET['password_length'])) {
                             </label>
                         </div>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                                checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 No
                             </label>
