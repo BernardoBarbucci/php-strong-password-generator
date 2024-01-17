@@ -1,5 +1,9 @@
 <?php
+if ($_GET && isset($_GET['password_length'])) {
+    $password_length = $_GET['password_length']
 
+
+};
 
 
 ?>
