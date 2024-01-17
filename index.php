@@ -20,6 +20,9 @@ function createRandomPassword($length)
 
     // shuffle dei caratteri
     $shuffle_characters = str_shuffle($characters);
+
+    // return il risultato -> nuova password criptata della stessa lunghezza
+    return substr($shuffle_characters, 0, $length);
 };
 
 
