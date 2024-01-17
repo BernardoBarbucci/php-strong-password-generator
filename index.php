@@ -8,9 +8,10 @@ if ($_GET && isset($_GET['password_length'])) {
 
     // stampa la nuova password
     echo "Your new password is: " . $cryptedPassword;
-} else {
-    echo "There was some issue with your request :(";
 };
+// else {
+//     echo "There was some issue with your request :(";
+// };
 
 // funzione per generare la password randomicamente
 function createRandomPassword($length)
@@ -59,7 +60,8 @@ function createRandomPassword($length)
                     <!-- lunghezza password -->
                     <div class="mb-3">
                         <label for="password-length" class="form-label">Password length</label>
-                        <input type="password" class="form-control" id="password-length">
+                        <input type="password" class="form-control" id="password-length" name="password_length"
+                            required>
                     </div>
                     <!-- inclusione lettere -->
                     <div class="mb-3 form-check">
