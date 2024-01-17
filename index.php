@@ -16,6 +16,8 @@ if ($_GET && isset($_GET['password_length'])) {
 // funzione per generare la password randomicamente
 function createRandomPassword($length)
 {
+    $length = (int)$length;
+
     // caratteri da inserire randomicamente
     $characters = 'abcdefghilmnopqrstuvzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
 
@@ -40,8 +42,7 @@ function createRandomPassword($length)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -60,8 +61,7 @@ function createRandomPassword($length)
                     <!-- lunghezza password -->
                     <div class="mb-3">
                         <label for="password-length" class="form-label">Password length</label>
-                        <input type="password" class="form-control" id="password-length" name="password_length"
-                            required>
+                        <input type="password" class="form-control" id="password-length" name="password_length" required>
                     </div>
                     <!-- inclusione lettere -->
                     <div class="mb-3 form-check">
@@ -82,15 +82,13 @@ function createRandomPassword($length)
                     <div class="row mb-3">
                         <p>Allow repetition of characters: </p>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="character-repetition-yes">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="character-repetition-yes">
                             <label class="form-check-label" for="character-repetition">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="character-repetition-no" checked>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="character-repetition-no" checked>
                             <label class="form-check-label" for="character-repetition-no">
                                 No
                             </label>
