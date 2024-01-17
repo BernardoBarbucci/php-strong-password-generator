@@ -23,7 +23,8 @@ if ($_GET && isset($_GET['password_length'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -41,36 +42,38 @@ if ($_GET && isset($_GET['password_length'])) {
                 <form class="col-10 offset-1 bg-light p-3 rounded" method="GET" action="">
                     <!-- lunghezza password -->
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password length</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="password-length" class="form-label">Password length</label>
+                        <input type="password" class="form-control" id="password-length">
                     </div>
                     <!-- inclusione lettere -->
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Letters</label>
+                        <input type="checkbox" class="form-check-input" id="letters">
+                        <label class="form-check-label" for="letters">Letters</label>
                     </div>
                     <!-- inclusione numeri -->
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Numbers</label>
+                        <input type="checkbox" class="form-check-input" id="numbers">
+                        <label class="form-check-label" for="numbers">Numbers</label>
                     </div>
                     <!-- inclusione simboli -->
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Symbols</label>
+                        <input type="checkbox" class="form-check-input" id="symbols">
+                        <label class="form-check-label" for="symbols">Symbols</label>
                     </div>
                     <!-- ripetizione caratteri -->
                     <div class="row mb-3">
                         <p>Allow repetition of characters: </p>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="character-repetition-yes">
+                            <label class="form-check-label" for="character-repetition">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="character-repetition-no" checked>
+                            <label class="form-check-label" for="character-repetition-no">
                                 No
                             </label>
                         </div>
