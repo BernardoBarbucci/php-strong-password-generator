@@ -10,6 +10,15 @@ if ($_GET && isset($_GET['password_length'])) {
     echo "Your new password is: " . $cryptedPassword;
 };
 
+// funzione per generare la password randomicamente
+function createRandomPassword($length) {
+    // caratteri da inserire randomicamente
+    $characters = 'abcdefghilmnopqrstuvzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+'
+
+    
+};
+
+
 
 ?>
 
