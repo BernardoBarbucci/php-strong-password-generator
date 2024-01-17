@@ -17,6 +17,9 @@ function createRandomPassword($length)
 {
     // caratteri da inserire randomicamente
     $characters = 'abcdefghilmnopqrstuvzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
+
+    // shuffle dei caratteri
+    $shuffle_characters = str_shuffle($characters);
 };
 
 
