@@ -28,7 +28,7 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
     };
 
     if ($includeSymbols) {
-        $characters .= '+"*¬°#@¦ç&/(=?!£)à{]}[.,-;:_\~';
+        $characters .= '+"*&/(=!){]}[.,-;:_\~';
     };
 
 
@@ -51,8 +51,7 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -96,15 +95,13 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
                     <div class="row mb-3">
                         <p>Allow repetition of characters: </p>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="character-repetition-yes"
-                                id="character-repetition-yes">
+                            <input class="form-check-input" type="radio" name="character-repetition-yes" id="character-repetition-yes">
                             <label class="form-check-label" for="character-repetition-yes">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="character-repetition-no"
-                                id="character-repetition-no">
+                            <input class="form-check-input" type="radio" name="character-repetition-no" id="character-repetition-no">
                             <label class="form-check-label" for="character-repetition-no">
                                 No
                             </label>
@@ -115,7 +112,7 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
                 <!-- Div con la nuova password -->
                 <div class="col-10 offset-1 mt-3 bg-light">
                     <p>New
-                        Password:<?php echo isset($_SESSION['cryptedPassword']) ? $_SESSION['cryptedPassword'] : ''; ?>
+                        Password: <?php echo isset($_SESSION['cryptedPassword']) ? $_SESSION['cryptedPassword'] : ''; ?>
                     </p>
                 </div>
             </div>
