@@ -5,20 +5,32 @@ if ($_GET && isset($_GET['password_length'])) {
 
     // $cryptedPassword = genera una password nuova della stessa lunghezza
     $cryptedPassword = createRandomPassword($password_length);
-
-    // stampa la nuova password
-    // echo "Your new password is: " . $cryptedPassword;
 } else {
     echo "There was some issue with your request :(";
 };
 
+
 // funzione per generare la password randomicamente
-function createRandomPassword($length)
+function createRandomPassword($length, $includeLetters, $includeNumbers, $includeSymbols)
 {
     $length = (int)$length;
 
-    // caratteri da inserire randomicamente
-    $characters = 'abcdefghilmnopqrstuvzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
+    $characters = '';
+
+    // inserire caratteri, numeri, simboli
+    if ($includeLetters) {
+        $characters .= 'abcdefghilmnopqrstuvzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    };
+
+    if ($includeNumbers) {
+        $characters .= '0123456789';
+    };
+
+    if ($includeSymbols) {
+        $characters .= '+"*¬°#@¦ç&/(=?!£)à{]}[.,-;:_\~';
+    };
+
+
 
     // shuffle dei caratteri
     $shuffle_characters = str_shuffle($characters);
@@ -59,27 +71,31 @@ function createRandomPassword($length)
                         <label for="password-length" class="form-label">Password length</label>
                         <input type="text" class="form-control" id="password-length" name="password_length" required>
                     </div>
+
                     <!-- inclusione lettere -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="letters">
                         <label class="form-check-label" for="letters">Letters</label>
                     </div>
+
                     <!-- inclusione numeri -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="numbers">
                         <label class="form-check-label" for="numbers">Numbers</label>
                     </div>
+
                     <!-- inclusione simboli -->
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="symbols">
                         <label class="form-check-label" for="symbols">Symbols</label>
                     </div>
+
                     <!-- ripetizione caratteri -->
                     <div class="row mb-3">
                         <p>Allow repetition of characters: </p>
                         <div class="form-check ms-2">
                             <input class="form-check-input" type="radio" name="character-repetition-yes" id="character-repetition-yes">
-                            <label class="form-check-label" for="character-repetition">
+                            <label class="form-check-label" for="character-repetition-yes">
                                 Yes
                             </label>
                         </div>
@@ -99,8 +115,6 @@ function createRandomPassword($length)
             </div>
         </section>
     </main>
-
-
 </body>
 
 </html>
