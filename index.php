@@ -7,7 +7,7 @@ if ($server['REQUEST_METHOD'] === '$_GET' && isset($_GET['password_length'])) {
     $password_length = $_GET['password_length'];
 
     // $cryptedPassword = genera una password nuova della stessa lunghezza
-    $cryptedPassword = createRandomPassword($password_length, isset($_GET['letters']), isset($_GET['numbers']), isset($_GET['symbols']));
+    $_SESSION['cryptedPassword'] = createRandomPassword($password_length, isset($_GET['letters']), isset($_GET['numbers']), isset($_GET['symbols']));
 };
 
 
