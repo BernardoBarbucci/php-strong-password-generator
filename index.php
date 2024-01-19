@@ -4,9 +4,7 @@ if ($_GET && isset($_GET['password_length'])) {
     $password_length = $_GET['password_length'];
 
     // $cryptedPassword = genera una password nuova della stessa lunghezza
-    $cryptedPassword = createRandomPassword($password_length);
-} else {
-    echo "There was some issue with your request :(";
+    $cryptedPassword = createRandomPassword($password_length, isset($_GET['letters']), isset($_GET['numbers']), isset($_GET['symbols']));
 };
 
 
@@ -50,7 +48,8 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -69,7 +68,7 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
                     <!-- lunghezza password -->
                     <div class="mb-3">
                         <label for="password-length" class="form-label">Password length</label>
-                        <input type="text" class="form-control" id="password-length" name="password_length" required>
+                        <input type="number" class="form-control" id="password-length" name="password_length" required>
                     </div>
 
                     <!-- inclusione lettere -->
@@ -94,13 +93,15 @@ function createRandomPassword($length, $includeLetters, $includeNumbers, $includ
                     <div class="row mb-3">
                         <p>Allow repetition of characters: </p>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="character-repetition-yes" id="character-repetition-yes">
+                            <input class="form-check-input" type="radio" name="character-repetition-yes"
+                                id="character-repetition-yes">
                             <label class="form-check-label" for="character-repetition-yes">
                                 Yes
                             </label>
                         </div>
                         <div class="form-check ms-2">
-                            <input class="form-check-input" type="radio" name="character-repetition-no" id="character-repetition-no">
+                            <input class="form-check-input" type="radio" name="character-repetition-no"
+                                id="character-repetition-no">
                             <label class="form-check-label" for="character-repetition-no">
                                 No
                             </label>
